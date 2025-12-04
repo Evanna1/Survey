@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe 评审与修改计划报告</title>
+    <style>
+        body {
+            font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px; 
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f0f4f8; 
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 2.5em;
+            text-align: center;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            border-bottom: 5px solid #007bff;
+        }
+
+        h2 {
+            color: #343a40;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding: 5px 10px;
+            border-left: 6px solid #28a745;
+        }
+
+        .section-content {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .overall-statement p {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .criticality-tag {
+            font-weight: bold;
+            margin-left: 10px;
+            padding: 2px 8px;
+            border-radius: 12px;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        .low {
+            background-color: #ffc107;
+        }
+
+        .medium {
+            background-color: #fd7e14;
+        }
+
+        .high {
+            background-color: #dc3545;
+        }
+
+        .two-column-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .problem-solution-row {
+            display: flex;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            background-color: #ffffff;
+            transition: transform 0.2s;
+        }
+
+            .problem-solution-row:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            }
+
+        .problem-column {
+            flex: 1;
+            padding: 15px 20px;
+            background-color: #f8f9fa; 
+            border-right: 3px solid #007bff; 
+        }
+
+            .problem-column strong {
+                display: block;
+                font-size: 1.1em;
+                margin-bottom: 5px;
+                color: #343a40;
+            }
+
+        .problem-category {
+            font-size: 0.85em;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+
+        .solution-column {
+            flex: 1;
+            padding: 15px 20px;
+            background-color: #ffffff;
+        }
+
+            .solution-column ul {
+                list-style-type: disc;
+                padding-left: 20px;
+                margin: 5px 0 0 0;
+            }
+
+                .solution-column ul li {
+                    margin-bottom: 5px;
+                }
+
+            .solution-column .plan-title {
+                font-weight: bold;
+                color: #28a745; 
+                margin-bottom: 5px;
+            }
+    </style>
+</head>
+<body>
+
+    <h1>📋 Wireframe 评审与修改计划报告</h1>
+
+    <h2>1. 整体评价（Overall Statement）</h2>
+    <div class="section-content overall-statement">
+        <p>整体反馈 <strong style="color: #28a745;">偏正面</strong>。同伴普遍认为 Wireframe 构架清晰、功能模块划分明确、整体流程逻辑流畅。但也指出部分页面在层级、导航统一性和交互细节上仍有改进空间。</p>
+    </div>
+
+    <h2>2. 问题与解决方案（Problem & Solution）</h2>
+    <div class="section-content two-column-container">
+
+        <h3>🔵 A. 导航（Navigation）</h3>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>1. 顶部栏风格不统一 <span class="criticality-tag medium">中</span></strong>
+                四个页面的顶部栏风格略有差异，不够统一。
+                <div class="problem-category">来源：同伴评审 A</div>
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：统一为浅色背景 + 居中标题 + 返回按钮结构</li>
+                    <li>预期效果：提高整体产品风格一致性，使用户在切换页面时更自然</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>2. 底部导航仅主页有 <span class="criticality-tag high">高</span></strong>
+                底部导航仅在主页出现，其他页面缺少一致性的导航结构。
+                <div class="problem-category">来源：同伴评审 B</div>
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：在四个页面均加入 BottomNavigationView</li>
+                    <li>预期效果：用户在任何页面均能快速切换核心模块，提高整体导航效率 30% 左右（预估）</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>3. 联系导师按钮多处出现 <span class="criticality-tag low">低</span></strong>
+                部分功能入口（如“联系导师”）重复出现在不同页面，可能造成混淆。
+                <div class="problem-category">来源：同伴评审 C</div>
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：主页保留入口，资源库中移除重复功能</li>
+                    <li>预期效果：减少用户困惑，提高功能聚焦度</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>🟣 B. 信息架构（Information Architecture）</h3>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>4. 快捷入口与资源库功能重叠 <span class="criticality-tag low">低</span></strong>
+                主页的快捷入口（Quick Actions）与资源库中的分类存在功能重叠。
+                <div class="problem-category">来源：评审 D</div>
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：快捷入口仅保留“提交文档、查看进度”，将“查找范文”移至资源库</li>
+                    <li>预期效果：减少功能冲突，主页决策负担下降</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>5. 时间轴间距不均 <span class="criticality-tag medium">中</span></strong>
+                流程中心页的时间轴节点之间间距较大，导致信息密度不均。
+                <div class="problem-category">来源：评审 E</div>
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：采用 RecyclerView + ItemDecoration 控制统一间距</li>
+                    <li>预期效果：让流程层次更清晰，滚动体验更顺畅</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>6. 导师页层次不明显 <span class="criticality-tag medium">中</span></strong>
+                导师指导页的信息层次较弱，导师信息卡片与消息流之间缺乏清晰区隔。
+                <div class="problem-category">来源：评审 F</div>
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：加入分割线与阴影，将导师卡片区与消息流区分</li>
+                    <li>预期效果：显著提高可读性，让用户一眼找到核心入口</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>🟢 C. 视觉层次（Visual Hierarchy）</h3>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>7. Progress Card 视觉过重 <span class="criticality-tag low">低</span></strong>
+                主页的 Progress Card 视觉权重过大，压过了“近期任务”模块。
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：减小阴影，调整卡片高度</li>
+                    <li>预期效果：提升下方“近期任务”的重要性</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>8. 流程状态区分不明显 <span class="criticality-tag high">高</span></strong>
+                流程中心页的“已完成 / 进行中 / 未开始”视觉区分不够明显。
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>
+                        修改方案：
+                        <ul>
+                            <li>已完成：淡绿 + 对勾</li>
+                            <li>进行中：高亮蓝 + 粗体</li>
+                            <li>未开始：灰色 + 锁</li>
+                        </ul>
+                    </li>
+                    <li>预期效果：大幅提升流程可理解性，尤其是新手用户</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>9. 资源库宫格图标占比过大 <span class="criticality-tag low">低</span></strong>
+                资源库宫格图标视觉占比过大，使页面下半部分显得空。
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：减小图标大小，增加标题粗体</li>
+                    <li>预期效果：视觉平衡改善，资源列表更易被注意</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>🟠 D. 交互流程（Interaction Flow）</h3>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>10. 输入框功能单一 <span class="criticality-tag low">低</span></strong>
+                导师页的输入框区域过于简单，没有预留附件/语音等功能扩展位置。
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：预留“+”号按钮（附件/图片）</li>
+                    <li>预期效果：提高沟通灵活度，留出后续扩展空间</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>11. 主页流程入口与流程中心重复 <span class="criticality-tag medium">中</span></strong>
+                主页的“查看选题—开题—中期”等流程与流程中心页重复，没有明显跳转逻辑。
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：主页改为“最近阶段”跳转，流程中心展示全流程</li>
+                    <li>预期效果：减少重复信息，逻辑更清晰</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>12. 推荐资源缺少点击反馈 <span class="criticality-tag medium">中</span></strong>
+                资源库页面内部的“推荐资源列表”没有标注点击动作或进入详情页的方式。
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：添加卡片可点击效果（ripple）+ 进入详情页</li>
+                    <li>预期效果：交互更自然清晰</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>🟡 E. 可用性 / 可访问性（Usability / Accessibility）</h3>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>13. 触控尺寸未标注 <span class="criticality-tag medium">中</span></strong>
+                页面多数元素未标注触控目标大小，不确定是否满足移动端 48dp 标准。
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：所有按钮标注 48dp 最小点击区域</li>
+                    <li>预期效果：提高移动端可用性，减少误触</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>14. 聊天气泡对比度不足 <span class="criticality-tag low">低</span></strong>
+                导师页的左右聊天气泡颜色可能不够对比明显，影响视觉可读性。
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：导师为浅灰，学生为主题色（#4CAF50）</li>
+                    <li>预期效果：区分清晰，提高阅读舒适度</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="problem-solution-row">
+            <div class="problem-column">
+                <strong>15. 流程页滚动过长 <span class="criticality-tag medium">中</span></strong>
+                流程中心页的滚动区域在小屏手机上可能过长，需要分段导航。
+            </div>
+            <div class="solution-column">
+                <div class="plan-title">修改计划：</div>
+                <ul>
+                    <li>修改方案：按阶段折叠（Collapsible Section）</li>
+                    <li>预期效果：用户可以按需展开，大幅提升浏览效率</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
